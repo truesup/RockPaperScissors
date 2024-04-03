@@ -8,36 +8,44 @@ optionImages.forEach((image, index) => {
   image.addEventListener("click", (e) => {
     image.classList.add("active");
 
+    userResult.src = cpuResult.src = "./imgs/rock.svg";
+    result.textContent = "Wait...";
+
     optionImages.forEach((image2, index2) => {
       index !== index2 && image2.classList.remove("active");
     });
 
-    let imageSrc = e.target.src;
-    userResult.src = imageSrc;
+    gameContainer.classList.add("start");
 
-    let randomNumber = Math.floor(Math.random() * 3);
-    let cpuImages = ["imgs/rock.svg", "imgs/paper.svg", "imgs/scissors.svg"];
-    cpuResult.src = cpuImages[randomNumber];
+    let time = setTimeout(() => {
+      gameContainer.classList.remove("start");
 
-    let cpuValue = ["R", "P", "S"][randomNumber];
-    let userValue = ["R", "P", "S"][index];
+      let imageSrc = e.target.src;
+      userResult.src = imageSrc;
 
-    let outcomes = {
-      RR: "Draw",
-      RP: "Cpu",
-      RS: "User",
-      PP: "Draw",
-      PR: "User",
-      PS: "Cpu",
-      SS: "Draw",
-      SR: "Cpu",
-      SP: "User",
-    };
+      let randomNumber = Math.floor(Math.random() * 3);
+      let cpuImages = ["imgs/rock.svg", "imgs/paper.svg", "imgs/scissors.svg"];
+      cpuResult.src = cpuImages[randomNumber];
 
-    let outcomeValue = outcomes[userValue + cpuValue];
+      let cpuValue = ["R", "P", "S"][randomNumber];
+      let userValue = ["R", "P", "S"][index];
 
-    result.textContent =
-      userValue === cpuValue ? "Match Draw" : `${outcomeValue} Won!!`;
-    console.log(outcomeValue);
+      let outcomes = {
+        RR: "Draw",
+        RP: "Cpu",
+        RS: "User",
+        PP: "Draw",
+        PR: "User",
+        PS: "Cpu",
+        SS: "Draw",
+        SR: "Cpu",
+        SP: "User",
+      };
+
+      let outcomeValue = outcomes[userValue + cpuValue];
+
+      result.textContent =
+        userValue === cpuValue ? "Match Draw" : `${outcomeValue} Won!!`;
+    }, 2500);
   });
 });
