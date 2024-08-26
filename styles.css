@@ -88,3 +88,46 @@ body {
   margin-top: 1rem;
   pointer-events: none;
 }
+@media (max-width: 770px) {
+  .container {
+    padding: 2rem 3rem;
+  }
+}
+@media (max-width: 630px) {
+  .container {
+    padding: 1.5rem 2rem;
+  }
+  .result_images {
+    gap: 4rem;
+  }
+}
+@media (max-width: 550px) {
+  .result_images img {
+    width: 150px;
+  }
+  .option_image img {
+    width: 75px;
+  }
+  .option_image p {
+    font-size: 1.2rem;
+  }
+}
+@media (max-width: 450px) {
+  .result_images img {
+    width: 100px;
+  }
+  .result {
+    font-size: 1.5rem;
+  }
+  .option_image img {
+    width: 65px;
+  }
+  .option_image p {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 360px) {
+  .container {
+    width: 315px;
+  }
+}
